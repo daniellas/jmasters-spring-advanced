@@ -59,6 +59,7 @@ public class TeachersControllerITest {
 
     @Test
     public void test0TeacherListShouldBeEmpty() throws Exception {
+        teacherRepo.deleteAll();
         mockMvc.perform(get("/teachers"))
                 .andDo(print())
                 .andExpect(status().isOk())

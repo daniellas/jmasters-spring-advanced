@@ -9,13 +9,15 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 import jmasters.spring.config.JpaConfig;
 import jmasters.spring.config.RepositoryConfig;
+import jmasters.spring.config.SecurityConfig;
 import jmasters.spring.config.ServiceConfig;
 
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { JpaConfig.class, RepositoryConfig.class, ServiceConfig.class };
+        return new Class[] { JpaConfig.class, RepositoryConfig.class, ServiceConfig.class, SecurityConfig.class,
+                WebSecurityConfig.class };
     }
 
     @Override
