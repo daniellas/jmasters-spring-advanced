@@ -1,5 +1,7 @@
 package jmasters.spring.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,9 +37,10 @@ public class Teacher implements Serializable {
 
     private Integer age;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Course course;
 
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Pupil> pupils = new ArrayList<>();
 

@@ -1,5 +1,7 @@
 package jmasters.spring.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,7 @@ public class Course implements Serializable {
     @Column(unique = true, nullable = false)
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "course", cascade = { CascadeType.ALL })
     private List<Teacher> teachers = new ArrayList<>();
 

@@ -42,4 +42,29 @@ public class DefaultTeachersService implements TeachersService {
         return teacherRepo.findAll();
     }
 
+    @Override
+    public List<Teacher> list() {
+        return teacherRepo.findAll();
+    }
+
+    @Override
+    public Teacher get(Long id) {
+        return teacherRepo.findOne(id);
+    }
+
+    @Override
+    public List<Teacher> findByName(String name) {
+        return teacherRepo.findByName(name);
+    }
+
+    @Override
+    public Teacher save(Teacher teacher) {
+        return teacherRepo.save(teacher);
+    }
+
+    @Override
+    public void remove(Long id) {
+        teacherRepo.delete(id);
+    }
+
 }

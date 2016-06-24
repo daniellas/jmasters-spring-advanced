@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -24,6 +25,7 @@ import jmasters.spring.repository.CourseRepository;
 @ContextConfiguration(classes = { JpaConfig.class, RepositoryConfig.class })
 @TransactionConfiguration(defaultRollback = false)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@DirtiesContext
 public class RepositoryTest {
 
     @Autowired
