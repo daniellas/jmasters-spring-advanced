@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import jmasters.spring.entity.Course;
@@ -12,7 +13,7 @@ import jmasters.spring.repository.CourseRepository;
 import jmasters.spring.repository.TeacherRepository;
 
 @Service
-public class DefaultTeachersService implements TeachersService {
+public class DefaultTeachersService extends RestServiceBase<Teacher> implements TeachersService {
 
     @Autowired
     private TeacherRepository teacherRepo;
@@ -43,28 +44,13 @@ public class DefaultTeachersService implements TeachersService {
     }
 
     @Override
-    public List<Teacher> list() {
-        return teacherRepo.findAll();
-    }
-
-    @Override
-    public Teacher get(Long id) {
-        return teacherRepo.findOne(id);
-    }
-
-    @Override
     public List<Teacher> findByName(String name) {
         return teacherRepo.findByName(name);
     }
 
     @Override
-    public Teacher save(Teacher teacher) {
-        return teacherRepo.save(teacher);
-    }
-
-    @Override
-    public void remove(Long id) {
-        teacherRepo.delete(id);
+    public JpaRepository<Teacher, Long> repository() {
+        return teacherRepo;
     }
 
 }
