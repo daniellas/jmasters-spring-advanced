@@ -19,4 +19,9 @@ public class DefaultCoursesService implements CoursesService {
         return courseRepo.findAll();
     }
 
+    @Override
+    public Course get(Long id) {
+        return courseRepo.findOne(id);
+    }
+
 }

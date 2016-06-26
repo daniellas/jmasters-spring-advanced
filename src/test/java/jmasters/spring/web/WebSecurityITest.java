@@ -79,4 +79,11 @@ public class WebSecurityITest {
                 .andExpect(status().is(403));
     }
 
+    @Test
+    public void adminAccessToCourseDetailsShouldBeGranted() throws Exception {
+        mockMvc.perform(get("/courses/{id}", 1).with(user("admin").roles("ADMIN").password("admin")))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
 }

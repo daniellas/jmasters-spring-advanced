@@ -6,6 +6,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.transaction.annotation.Transactional;
 
 import jmasters.spring.entity.Teacher;
+import jmasters.spring.security.UserRole;
 
 @Transactional
 public interface TeachersService {
@@ -14,14 +15,14 @@ public interface TeachersService {
 
     List<Teacher> findByName(String name);
 
-    @Secured("ROLE_ADMIN")
+    @Secured(UserRole.ROLE_ADMIN)
     List<Teacher> createRandom();
 
     Teacher get(Long id);
 
-    @Secured("ROLE_ADMIN")
+    @Secured(UserRole.ROLE_ADMIN)
     Teacher save(Teacher teacher);
 
-    @Secured("ROLE_ADMIN")
+    @Secured(UserRole.ROLE_ADMIN)
     void remove(Long id);
 }
